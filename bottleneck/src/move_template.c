@@ -923,7 +923,7 @@ mover(char *name,
     }
 
     /* convert to array if necessary */
-    if PyArray_Check(a_obj) {
+    if (PyArray_Check(a_obj)) {
         a = (PyArrayObject *)a_obj;
     }
     else {
@@ -934,7 +934,7 @@ mover(char *name,
     }
 
     /* check for byte swapped input array */
-    if PyArray_ISBYTESWAPPED(a) {
+    if (PyArray_ISBYTESWAPPED(a)) {
         return slow(name, args, kwds);
     }
 
